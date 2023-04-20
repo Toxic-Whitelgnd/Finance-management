@@ -213,7 +213,7 @@ public class SignupPage extends javax.swing.JFrame {
             Statement st = con.createStatement();
             int rs = st.executeUpdate(query);
             
-            String sql1 = "CREATE TABLE "+accname+"(accname varchar(25),startingbal bigint,expdes varchar(255),expamt bigint,expcat varchar(25),incdes varchar(25),incamt bigint,inccat varchar(25),balance bigint,findate date)";
+            String sql1 = "CREATE TABLE "+accname+"(accname varchar(25),startingbal bigint,expdes varchar(255),expamt bigint,expcat varchar(25),incdes varchar(25),incamt bigint,inccat varchar(25),balance bigint,findate date,month bigint,year bigint)";
             
             st.executeUpdate(sql1);
             System.out.println("Created the table for the user");

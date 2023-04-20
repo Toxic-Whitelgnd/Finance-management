@@ -13,9 +13,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import java.time.LocalDateTime;  
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -201,122 +204,127 @@ public class AddExpence extends javax.swing.JFrame {
         h.setVisible(true);
         h.getaccnameandbal(accname, password, startbal);
     }//GEN-LAST:event_jButton2ActionPerformed
-    
-    public void sendreambal(int avalbal){
-        
-        if(startbal == avalbal){
-            
-        }
-        else{
+
+    public void sendreambal(int avalbal) {
+
+        if (startbal == avalbal) {
+
+        } else {
             startbal = avalbal;
 //            here i have to update on userdetails of the user
             updateindb(avalbal);
 
-            
         }
-    }   
-    public void updateindb(int avalbal){
-       try {
+    }
+
+    public void updateindb(int avalbal) {
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/financemanagement","root","1234");
-            
-            String query = "update userdetailsfinance SET startingbal='"+avalbal+"' where accname = '"+accname+"' and upassword = '"+password+"' " ;
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/financemanagement", "root", "1234");
+
+            String query = "update userdetailsfinance SET startingbal='" + avalbal + "' where accname = '" + accname + "' and upassword = '" + password + "' ";
             Statement st = con.createStatement();
             st.executeUpdate(query);
-            
-            
-            }
-            
-        
-            catch (Exception e) {
+
+        } catch (Exception e) {
             System.out.println(e);
             System.out.println("not connected");
-            }
+        }
     }
-    
-    private void addtoexpenselist(){
-         String description = jTextField1.getText();
-            String amt = jTextField2.getText();
-            String category  = jTextField3.getText();
-            
-               int expamt=Integer.parseInt(amt);  
-            reambal = startbal - expamt;
-            
-            
-            try {
+
+    private void addtoexpenselist() {
+        String description = jTextField1.getText();
+        String amt = jTextField2.getText();
+        String category = jTextField3.getText();
+
+        int expamt = Integer.parseInt(amt);
+        reambal = startbal - expamt;
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection ("jdbc:mysql://localhost:3306/financemanagement","root","1234");
-            
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/financemanagement", "root", "1234");
+
 //            todaysDate = java.time.LocalDate.now();
-            System.out.println(java.time.LocalDate.now()); 
-            
+            System.out.println(java.time.LocalDate.now());
+
             String nu = "Null";
-            
-            if (con!=null) {
+
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+            String strDate = formatter.format(date);
+            System.out.println("Date Format with MM/dd/yyyy : " + strDate);
+            System.out.println(strDate.substring(0,2));
+            String mo = strDate.substring(0,2);
+            int month = Integer.parseInt(mo);
+            String yr = strDate.substring(6,10);
+            int year = Integer.parseInt(yr);
+
+            if (con != null) {
                 System.out.println("successfully connected");
-                System.out.println(java.time.LocalDate.now());
+                System.out.println((java.time.LocalDate.now()).getClass().getSimpleName());
+
+                System.out.println();
 //                specific user
-                String query = "insert into "+accname+" values('"+accname+"','"+startbal+"','"+description+"','"+amt+"','"+category+"','"+nu+"',0,'"+nu+"','"+reambal+"','"+java.time.LocalDate.now()+"')" ;
+                String query = "insert into " + accname + " values('" + accname + "','" + startbal + "','" + description + "','" + amt + "','" + category + "','" + nu + "',0,'" + nu + "','" + reambal + "','" + java.time.LocalDate.now() + "','"+month+"','"+year+"')";
                 Statement st = con.createStatement();
                 int rs = st.executeUpdate(query);
-                 if(rs>0){
-                     System.out.println("added successfully");
-                     JOptionPane.showMessageDialog(null, "Expence added Succesful", "Expence", JOptionPane.PLAIN_MESSAGE, null);
-                     sendreambal(reambal);
-                     setfieldstoempty();
-                 }
+                if (rs > 0) {
+                    System.out.println("added successfully");
+                    JOptionPane.showMessageDialog(null, "Expence added Succesful", "Expence", JOptionPane.PLAIN_MESSAGE, null);
+                    sendreambal(reambal);
+                    setfieldstoempty();
+                }
 
-                
-            
             }
-            } catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
             System.out.println("not connected");
-            }
+        }
     }
-    private void setfieldstoempty(){
+
+    private void setfieldstoempty() {
         jTextField1.setText(null);
         jTextField2.setText(null);
         jTextField3.setText(null);
-         jTextField1.requestFocus();
+        jTextField1.requestFocus();
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == jButton1){
-            
+        if (evt.getSource() == jButton1) {
+
             addtoexpenselist();
-           
-    
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == 10){
+        if (evt.getKeyCode() == 10) {
             jTextField2.requestFocus();
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == 10){
+        if (evt.getKeyCode() == 10) {
             jTextField3.requestFocus();
         }
     }//GEN-LAST:event_jTextField2KeyPressed
 
     private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
         // TODO add your handling code here:
-         if (evt.getKeyCode() == 10){
+        if (evt.getKeyCode() == 10) {
             addtoexpenselist();
         }
     }//GEN-LAST:event_jTextField3KeyPressed
-    
+
     public static String accname;
     public static String password;
     public static int startbal;
     public static int reambal;
     public static int refstartamt;
-    public void getaccnamestartbal(String accname,int startbal,String password){
+
+    public void getaccnamestartbal(String accname, int startbal, String password) {
         System.out.println("came to getting function");
         this.accname = accname;
         this.password = password;
@@ -324,6 +332,7 @@ public class AddExpence extends javax.swing.JFrame {
         this.refstartamt = startbal;
         System.out.println(accname + password + startbal);
     }
+
     /**
      * @param args the command line arguments
      */

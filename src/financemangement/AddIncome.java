@@ -11,6 +11,8 @@ import static financemangement.AddExpence.startbal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -246,13 +248,23 @@ public class AddIncome extends javax.swing.JFrame {
             System.out.println(java.time.LocalDate.now()); 
             String nu = "Null";
             
+            Date date = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+            String strDate = formatter.format(date);
+            System.out.println("Date Format with MM/dd/yyyy : " + strDate);
+            System.out.println(strDate.substring(0,2));
+            String mo = strDate.substring(0,2);
+            int month = Integer.parseInt(mo);
+            String yr = strDate.substring(6,10);
+            int year = Integer.parseInt(yr);
+            
             
             if (con!=null) {
                 System.out.println("successfully connected");
                 
 //                specific user
                 
-                String query = "insert into "+accname+" values('"+accname+"','"+startbal+"','"+nu+"',0,'"+nu+"','"+description+"','"+amt+"','"+category+"','"+reambal+"','"+java.time.LocalDate.now()+"')" ;
+                String query = "insert into "+accname+" values('"+accname+"','"+startbal+"','"+nu+"',0,'"+nu+"','"+description+"','"+amt+"','"+category+"','"+reambal+"','"+java.time.LocalDate.now()+"','"+month+"','"+year+"')" ;
                 Statement st = con.createStatement();
                 int rs = st.executeUpdate(query);
                  if(rs>0){
