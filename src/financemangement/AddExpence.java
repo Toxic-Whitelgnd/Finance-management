@@ -236,49 +236,53 @@ public class AddExpence extends javax.swing.JFrame {
         String description = jTextField1.getText();
         String amt = jTextField2.getText();
         String category = jTextField3.getText();
+        System.out.println("fkk here"+description);
+        if (startbal < Integer.parseInt(amt)) {
+            JOptionPane.showMessageDialog(null, "You cant spend more than the available amount", "Insufficient balance", JOptionPane.ERROR_MESSAGE, null);
+        } else {
+            int expamt = Integer.parseInt(amt);
+            reambal = startbal - expamt;
 
-        int expamt = Integer.parseInt(amt);
-        reambal = startbal - expamt;
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/financemanagement", "root", "1234");
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/financemanagement", "root", "1234");
 
 //            todaysDate = java.time.LocalDate.now();
-            System.out.println(java.time.LocalDate.now());
+                System.out.println(java.time.LocalDate.now());
 
-            String nu = "Null";
+                String nu = "Null";
 
-            Date date = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-            String strDate = formatter.format(date);
-            System.out.println("Date Format with MM/dd/yyyy : " + strDate);
-            System.out.println(strDate.substring(0,2));
-            String mo = strDate.substring(0,2);
-            int month = Integer.parseInt(mo);
-            String yr = strDate.substring(6,10);
-            int year = Integer.parseInt(yr);
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                String strDate = formatter.format(date);
+                System.out.println("Date Format with MM/dd/yyyy : " + strDate);
+                System.out.println(strDate.substring(0, 2));
+                String mo = strDate.substring(0, 2);
+                int month = Integer.parseInt(mo);
+                String yr = strDate.substring(6, 10);
+                int year = Integer.parseInt(yr);
 
-            if (con != null) {
-                System.out.println("successfully connected");
-                System.out.println((java.time.LocalDate.now()).getClass().getSimpleName());
+                if (con != null) {
+                    System.out.println("successfully connected");
+                    System.out.println((java.time.LocalDate.now()).getClass().getSimpleName());
 
-                System.out.println();
+                    System.out.println();
 //                specific user
-                String query = "insert into " + accname + " values('" + accname + "','" + startbal + "','" + description + "','" + amt + "','" + category + "','" + nu + "',0,'" + nu + "','" + reambal + "','" + java.time.LocalDate.now() + "','"+month+"','"+year+"')";
-                Statement st = con.createStatement();
-                int rs = st.executeUpdate(query);
-                if (rs > 0) {
-                    System.out.println("added successfully");
-                    JOptionPane.showMessageDialog(null, "Expence added Succesful", "Expence", JOptionPane.PLAIN_MESSAGE, null);
-                    sendreambal(reambal);
-                    setfieldstoempty();
-                }
+                    String query = "insert into " + accname + " values('" + accname + "','" + startbal + "','" + description + "','" + amt + "','" + category + "','" + nu + "',0,'" + nu + "','" + reambal + "','" + java.time.LocalDate.now() + "','" + month + "','" + year + "')";
+                    Statement st = con.createStatement();
+                    int rs = st.executeUpdate(query);
+                    if (rs > 0) {
+                        System.out.println("added successfully");
+                        JOptionPane.showMessageDialog(null, "Expence added Succesful", "Expence", JOptionPane.PLAIN_MESSAGE, null);
+                        sendreambal(reambal);
+                        setfieldstoempty();
+                    }
 
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.println("not connected");
             }
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("not connected");
         }
     }
 
@@ -291,9 +295,20 @@ public class AddExpence extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if (evt.getSource() == jButton1) {
+            String description = jTextField1.getText();
+        String amt = jTextField2.getText();
+        String category = jTextField3.getText();
+        
+         if (description != null && category 
+                 != null && amt != null) {
+             System.out.print("its running");
+             addtoexpenselist();
+             
+         }else{
+             System.out.println("fkk here inside"+description);
 
-            addtoexpenselist();
-
+         }
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
