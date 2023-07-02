@@ -34,10 +34,19 @@
 ![Screenshot (600)](https://user-images.githubusercontent.com/90614827/233103708-3a200354-e9e2-4ba2-af89-da9f7cbf21b3.png)
 
 # 10.After adding income
-![Screenshot (601)](https://user-images.githubusercontent.com/90614827/233104052-7720c538-9496-484d-9ec5-c5f92db2adb4.png)
+![11](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/e9acc79f-733f-4d36-acbd-5cab59adeaef)
+
 
 # 11.Viewing Balance
 ![Screenshot (602)](https://user-images.githubusercontent.com/90614827/233104147-00f5dd18-e757-49cc-806b-7b7502dd5725.png)
+
+# 12.inside the Calculate
+![13](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/4e75a77f-7a5e-4dba-83a4-348bf7b5f825)
+![14](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/4cd44f5a-7dd2-4af2-99a1-b01c3c300af0)
+![15](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/bbf96170-be69-4b02-9a92-0d7b6a134487)
+![16](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/d477e293-d0d3-4de1-89e7-0a894ec1db53)
+![17](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/61a5cd44-2822-40d5-94ce-3462429ffa6e)
+
 
 # 12.After close and opening the Application
 ![Screenshot (603)](https://user-images.githubusercontent.com/90614827/233104368-4bd5d339-1954-4fd4-bcb9-abd21b1ddae0.png)
