@@ -41,19 +41,19 @@
 ![Screenshot (602)](https://user-images.githubusercontent.com/90614827/233104147-00f5dd18-e757-49cc-806b-7b7502dd5725.png)
 
 # 12.inside the Calculate
-## selecting the month to calculate the expense and income
+## 12.1 selecting the month to calculate the expense and income
 ![13](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/4e75a77f-7a5e-4dba-83a4-348bf7b5f825)
-## calculating the expense's
+## 12.2 calculating the expense's
 ![14](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/4cd44f5a-7dd2-4af2-99a1-b01c3c300af0)
-## calculating the profit
+## 12.3 calculating the profit
 ![15](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/bbf96170-be69-4b02-9a92-0d7b6a134487)
-## calculating the income
+## 12.4 calculating the income
 ![16](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/d477e293-d0d3-4de1-89e7-0a894ec1db53)
 
 
 
 
-# 12.After close and opening the Application
+# 13.After close and opening the Application
 ![Screenshot (603)](https://user-images.githubusercontent.com/90614827/233104368-4bd5d339-1954-4fd4-bcb9-abd21b1ddae0.png)
 
 ![Screenshot (604)](https://user-images.githubusercontent.com/90614827/233104400-875124a5-937e-424d-90bf-f0d4e4e3c7e4.png)
