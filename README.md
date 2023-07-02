@@ -21,7 +21,7 @@
 ![Screenshot (597)](https://user-images.githubusercontent.com/90614827/233103346-b7472a69-14df-41f6-b145-226bfe785f13.png)
 
 # 6.After adding expence 
-![Screenshot (606)](https://user-images.githubusercontent.com/90614827/233103905-7112f3fa-f3d1-4360-b498-89deabae650c.png)
+![11](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/364d42be-2325-40cd-92cc-37e09d05e480)
 
 
 # 7.Expence viewer
