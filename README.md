@@ -12,7 +12,8 @@
 ![Screenshot (593)](https://user-images.githubusercontent.com/90614827/233102922-502d949c-75d2-4856-abf4-32765c8430fc.png)
 
 # 4.Home Page
-![Screenshot (595)](https://user-images.githubusercontent.com/90614827/233103085-a44bb8fe-bae0-4b41-a546-1404f32fcab6.png)
+![5](https://github.com/Toxic-Whitelgnd/Finance-management/assets/90614827/7e999306-f605-4e94-a51c-52994270959d)
+
 
 # 5.Add Exepence manager
 ![Screenshot (596)](https://user-images.githubusercontent.com/90614827/233103284-b5963eaf-6528-4cfe-89aa-14277fb3bc80.png)
